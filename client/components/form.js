@@ -19,9 +19,58 @@ const style = {
 }
 
 const Form = () => {
+  const { transactionData, handleChange, sendTransaction } =
+  useContext(TransactionContext)
+
+  const handleSubmit = async (e) => {
+    const { addressTo, amount } = transactionData
+    e.preventDefault()
+
+    if (!addressTo || !amount) return
+
+    sendTransaction()
+  }
 
   return (
-    <h1>Form</h1>
+    <div className={style.wrapper}>
+      <div className={style.content}>
+        <div className={style.formHeader}>
+          <div>Swap</div>
+          <div>
+            <RiSettings3Fill />
+          </div>
+        </div>
+        <div className={style.transferPropContainer}>
+          <input
+            type='text'
+            className={style.transferPropInput}
+            placeholder='0.0'
+            pattern='^[0-9]*[.,]?[0-9]*$'
+            onChange={e => handleChange(e, 'amount')}
+          />
+          <div className={style.currencySelector}>
+            <div className={style.currencySelectorContent}>
+              <div className={style.currencySelectorIcon}>
+              </div>
+              <div className={style.currencySelectorTicker}>ETH</div>
+              <AiOutlineDown className={style.currencySelectorArrow} />
+            </div>
+          </div>
+        </div>
+        <div className={style.transferPropContainer}>
+          <input
+            type='text'
+            className={style.transferPropInput}
+            placeholder='0x...'
+            onChange={e => handleChange(e, 'addressTo')}
+          />
+          <div className={style.currencySelector}></div>
+        </div>
+        <div onClick={e => handleSubmit(e)} className={style.confirmButton}>
+          Confirm
+        </div>
+      </div>
+    </div>
   )
 }
 
