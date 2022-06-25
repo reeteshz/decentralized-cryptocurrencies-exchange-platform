@@ -2,7 +2,10 @@ import { useEffect, useState, useContext } from 'react'
 import { TransactionContext } from '../context/TransactionContext'
 
 const style = {
-    tableRow: `bg-[#000000] px-4 py-2 my-2 flex justify-around`
+    tableRow: `bg-[#571089] px-4 py-2 flex justify-around`,
+    headRow: `bg-[#47126B] px-4 py-2 flex justify-around`,
+    logHeader: `flex justify-around text-2xl text-black font-black pt-8 pb-4`,
+    hash: `px-48`
   }
 
 const LogsTable = () => {
@@ -34,11 +37,19 @@ const LogsTable = () => {
     console.log(data.result)
   return (
     <div>
-        <h4>Logs Table</h4>
+        <h1 className={style.logHeader}>Past Transactions</h1>
         {data.result.length > 0 && (
             <ul>
+                <li key={Math.random()}>
+                    <div className={style.headRow}>
+                        <div> ID </div>
+                        <div className={style.hash}>  Transaction Hash </div> 
+                        <div> Amount </div>
+                        <div>Action </div>
+                    </div>
+                </li>
             {data.result.map((thrans, index) => (
-                <li key={Math.random()} className={style.tableRow}>
+                <li key={Math.random()}>
                     <div className={style.tableRow}>
                         <div> { index + 1 } </div>
                         <div>{thrans.hash}</div> 

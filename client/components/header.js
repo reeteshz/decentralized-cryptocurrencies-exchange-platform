@@ -13,11 +13,11 @@ const style = {
   navItem: `px-4 py-2 m-1 flex items-center text-lg font-semibold text-[0.9rem] cursor-pointer`,
   activeNavItem: `bg-[#20242A]`,
   buttonsContainer: `flex w-1/4 justify-end items-center`,
-  button: `flex items-center bg-[#191B1F] mx-2 text-[0.9rem] font-semibold cursor-pointer`,
+  button: `flex items-center bg-[#47126B] mx-2 text-[0.9rem] font-semibold cursor-pointer rounded-lg px-4`,
   buttonPadding: `p-2`,
   buttonTextContainer: `h-8 flex items-center`,
   buttonIconContainer: `flex items-center justify-center w-8 h-8`,
-  buttonAccent: `bg-[#172A42] border border-[#163256] hover:border-[#234169] h-full flex items-center justify-center text-[#4F90EA]`,
+  buttonAccent: `bg-[#172A42] border border-[#172A42] hover:border-[#172A42] h-full flex items-center justify-center text-[#4F90EA]`,
 }
 
 const Header = () => {
@@ -42,66 +42,19 @@ const Header = () => {
       <div className={style.headerLogo}>
         {/* <Image src={uniswapLogo} alt='uniswap' height={40} width={40} /> */}
       </div>
-      <div className={style.nav}>
-        <div className={style.navItemsContainer}>
-          <div
-            onClick={() => setSelectedNav('swap')}
-            className={`${style.navItem} ${
-              selectedNav === 'swap' && style.activeNavItem
-            }`}
-          >
-            Swap
-          </div>
-          <div
-            onClick={() => setSelectedNav('pool')}
-            className={`${style.navItem} ${
-              selectedNav === 'pool' && style.activeNavItem
-            }`}
-          >
-            Pool
-          </div>
-          <div
-            onClick={() => setSelectedNav('vote')}
-            className={`${style.navItem} ${
-              selectedNav === 'vote' && style.activeNavItem
-            }`}
-          >
-            Vote
-          </div>
-        </div>
-      </div>
       <div className={style.buttonsContainer}>
-        <div className={`${style.button} ${style.buttonPadding}`}>
-          <div className={style.buttonIconContainer}>
-            {/* <Image src={ethLogo} alt='eth logo' height={20} width={20} /> */}
-          </div>
-          <p>Ethereum</p>
-          <div className={style.buttonIconContainer}>
-            <AiOutlineDown />
-          </div>
-        </div>
-
-
         {currentAccount ? (
           <div className={`${style.button} ${style.buttonPadding}`}>
-            <div className={style.buttonTextContainer}>{userName}</div>
+            <div className={style.buttonTextContainer}> Connected Account {userName}</div>
           </div>
         ) : (
           <div
             onClick={() => connectWallet()}
             className={`${style.button} ${style.buttonPadding}`}
           >
-            <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
-              Connect Wallet
-            </div>
+            <div className={style.buttonTextContainer}> Connect Wallet {userName}</div>
           </div>
         )}
-
-        <div className={`${style.button} ${style.buttonPadding}`}>
-          <div className={`${style.buttonIconContainer} mx-2`}>
-            <HiOutlineDotsVertical />
-          </div>
-        </div>
       </div>
     </div>
   )
