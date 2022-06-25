@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from '../components/header'
 import Form from '../components/Form'
+import LogsTable from '../components/LogsTable'
 
 
 const style = {
@@ -13,8 +14,7 @@ const Home = () => {
     <div className={style.wrapper}>
       <Header/>
       <Form/>
-      <h2>Transaction history</h2>
-
+      <LogsTable/>
     </div>
   )
 }
