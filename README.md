@@ -1,1 +1,1 @@
-# decentralized-cryptocurrencies-exchange-platform
+# Decentralized Cryptocurrency Exchange Platform
