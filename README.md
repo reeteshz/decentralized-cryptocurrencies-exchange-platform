@@ -39,13 +39,13 @@ Team Agreement:
 9. GitHub Accounts - 
 
 
-Name 
+Name    
 GitHub Account
 Reetesh Zope
 https://github.com/reeteshz
 Samihan Jawalkar
 https://github.com/samihan123
-Tina Andre
+Tina Andre 
 https://github.com/marxeen
 Mohit Gupta
 https://github.com/mohitguptagp500
